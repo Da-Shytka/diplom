@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@cyntler/react-doc-viewer": "^1.17.1",
+    "docx-preview": "^0.3.7"
+  }
+}

@@ -1,0 +1,340 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Geologica', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.text-check-panel {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.document-paper {
+  width: min(100%, 860px);
+  margin: 0 auto;
+}
+
+.document-header {
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.document-signature {
+  margin-top: 28px;
+  padding-top: 8px;
+}
+
+.document-executor {
+  margin-top: 30px;
+  color: #595959;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.required-blocks-panel {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.required-blocks-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.required-blocks-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+
+.required-blocks-subtitle {
+  margin-top: 3px;
+  font-size: 13px;
+  color: #595959;
+}
+
+.required-blocks-reasons {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #595959;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.required-blocks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.required-block-row {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 10px;
+  min-height: 74px;
+  padding: 10px 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.required-block-row.is-missing {
+  border-color: #ffccc7;
+  background: #fff2f0;
+}
+
+.required-block-icon {
+  padding-top: 2px;
+  font-size: 17px;
+}
+
+.required-block-main {
+  min-width: 0;
+}
+
+.required-block-name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+
+.required-block-state {
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.required-block-evidence {
+  margin-top: 6px;
+  color: #595959;
+  font-size: 12px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .document-paper {
+    padding: 24px 20px !important;
+    font-size: 14px !important;
+  }
+
+  .document-header > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  .document-header > div > div {
+    text-align: left !important;
+  }
+
+  .required-blocks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .required-blocks-head {
+    flex-direction: column;
+  }
+}
+
+/* ─── Letter paper ───────────────────────────────────────────── */
+
+.letter-paper {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 36px 40px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+.letter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.letter-sender {
+  font-size: 12px;
+  color: #888;
+  font-family: var(--font-mono);
+}
+
+.letter-sender-label {
+  font-size: 11px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+
+.letter-addressee {
+  text-align: right;
+  max-width: 55%;
+}
+
+.letter-addressee p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 13.5px;
+}
+
+.letter-addressee p.fio-line {
+  font-weight: 700;
+}
+
+.letter-divider {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 0 0 24px;
+}
+
+.letter-greeting-wrap {
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+/* Подсветка обращения при ошибке */
+.greeting-highlight {
+  display: inline;
+  background: rgba(255, 77, 79, 0.13);
+  border-bottom: 2px solid rgba(255, 77, 79, 0.7);
+  border-radius: 3px;
+  padding: 1px 4px;
+  cursor: help;
+  transition: background 0.2s;
+}
+
+.greeting-highlight:hover {
+  background: rgba(255, 77, 79, 0.24);
+}
+
+.greeting-ok {
+  display: inline;
+}
+
+/* Заглушка тела письма */
+.letter-body-placeholder p {
+  margin: 0 0 7px;
+  height: 12px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #ebebeb 0%, #f7f7f7 50%, #ebebeb 100%);
+  background-size: 200% auto;
+  animation: shimmer 1.8s linear infinite;
+}
+
+.letter-body-placeholder p:last-child {
+  width: 60%;
+}
+
+.letter-fio-label {
+  font-size: 11px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+}
+
+/* ─── Animations ─────────────────────────────────────────────── */
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.3s ease both;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: #ddd; border-radius: 99px; }
+
+/* frontend/src/index.css - добавьте эти стили */
+.document-viewer::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.document-viewer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.document-viewer::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.document-viewer::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.highlight-error {
+  background-color: #ffccc7;
+  border-bottom: 2px solid #ff4d4f;
+  cursor: help;
+  transition: all 0.2s ease;
+}
+
+.highlight-error:hover {
+  background-color: #ffa39e;
+  transform: translateY(-1px);
+}
+
+/* frontend/src/index.css - добавьте */
+.document-viewer::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.document-viewer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.document-viewer::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.document-viewer::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

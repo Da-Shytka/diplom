@@ -1,0 +1,4150 @@
+{
+  "summary": {
+    "passed": 202,
+    "total": 202,
+    "accuracy": 1.0,
+    "by_category": {
+      "check_gender": {
+        "passed": 23,
+        "total": 23,
+        "accuracy": 1.0
+      },
+      "check_initials": {
+        "passed": 10,
+        "total": 10,
+        "accuracy": 1.0
+      },
+      "check_layout": {
+        "passed": 57,
+        "total": 57,
+        "accuracy": 1.0
+      },
+      "check_required_blocks": {
+        "passed": 19,
+        "total": 19,
+        "accuracy": 1.0
+      },
+      "check_spelling": {
+        "passed": 20,
+        "total": 20,
+        "accuracy": 1.0
+      },
+      "required_blocks": {
+        "passed": 73,
+        "total": 73,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "template_dir": "D:\\Study\\Diplom\\data",
+  "generated_dir": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases",
+  "llm_disabled": true,
+  "reference_material": {
+    "instruction_file": "выдержка из Инструкции с примером оформления исх. писем.docx",
+    "instruction_hits": [
+      "5. Реквизит «справочные данные о государственном органе» включает: почтовый адрес, номера телефона, факса, адрес электронной почты, сетевой адрес Управления.",
+      "7. Реквизит «дата документа» должна соответствовать дате подписания (утверждения) документа (приказы, распоряжения, письма, докладные и служебные записки, акты и др.) или (в протоколах, актах и др.) дате события, зафиксированного в документе.",
+      "Датой документа, изданного совместно двумя или более организациями (должностными лицами), является дата подписания документа последней стороной.",
+      "Дата документа проставляется лицом, осуществляющим регистрацию документа, либо должностным лицом, подписывающим или утверждающим документ, или непосредственно составителем при подготовке документа (докладная записка, заявление и др.).",
+      "Все служебные отметки на документе, связанные с его прохождением и исполнением, в том числе резолюции (указания по исполнению документа) и визы согласования, необходимо датировать и подписывать.",
+      "8. Реквизит «регистрационный номер документа» – цифровой или буквенно-цифровой идентификатор документа проставляется в соответствии с системой регистрации в электронных карточках в СЭД Управления и состоит из его порядкового номера и дополнительных индексов; в РКК СЭД содержится также информация о виде документа, подразделении–исполнителе документа, о способе отправки, отметке о конфиденциальности и т.д.",
+      "Регистрационный номер документу присваивается после его подписания (утверждения).",
+      "Ссылка на регистрационный номер и дату документа проставляется исполнителем при подготовке письма-ответа.",
+      "На документах, оформленных на стандартных листах бумаги формата А4, ссылка на регистрационный номер и дату документа располагается по левой границе текстового поля и печатается шрифтом № 12 на расстоянии межстрочного интервала 24 пт от предыдущего реквизита, например:",
+      "Ограничительная пометка «Для служебного пользования» (далее – пометка «ДСП») проставляется в правом верхнем углу текстового поля первой страницы документа, на сопроводительном письме и приложениях к нему и на последующих страницах не повторяется, печатается без кавычек, ограничивается правым полем листа, подчеркивается и дополняется номером экземпляра документа. Номер экземпляра документа проставляется через один межстрочный интервал и центрируется относительно пометки «ДСП», но не подчеркивается, например:",
+      "12. Реквизит «Адресат» – реквизит, используемый при оформлении деловых (служебных) писем, внутренних информационно-справочных документов Управления.",
+      "Адресатом документа может быть организация, структурное подразделение Управления, должностное или физическое лицо.",
+      "Первая строка адресата не должна превышать первой строки бланковой надписи (угловой бланк) после изображения Государственного герба Российской Федерации.",
+      "Строки, входящие в состав реквизита, печатаются через одинарный межстрочный интервал и центрируются по отношению к самой длинной строке (не более 10 см), которая ограничивается правой границей текстового поля. Составные части адреса отделяются друг от друга полуторным межстрочным интервалом.",
+      "При адресовании документа нескольким адресатам адресаты отделяются друг от друга двойным интервалом, например:",
+      "При адресовании письма в организацию указывается ее полное или сокращенное наименование в именительном падеже, например:",
+      "При адресовании документа в структурное подразделение организации в реквизите «адресат» указываются в именительном падеже наименование организации, ниже – наименование структурного подразделения, например:",
+      "При адресовании письма руководителю структурного подразделения указываются в именительном падеже наименование организации, ниже – в дательном падеже наименование должности руководителя, включающее наименование структурного подразделения, фамилию, инициалы, например:",
+      "При адресовании документа руководителю (заместителю руководителя) организации указываются в дательном падеже наименование должности руководителя (заместителя руководителя), включающее наименование организации, фамилию, инициалы должностного лица, например:",
+      "При рассылке документа группе организаций одного типа или в структурные подразделения одной организации, адресат указывается обобщенно, например:",
+      "При рассылке документа не всем организациям или структурным подразделениям под реквизитом «Адресат» в скобках указывается «(по списку)», например:",
+      "Список рассылки составляется исполнителем.",
+      "Если письмо направляется в организацию или должностному лицу и для сведения еще ряду организаций или должностных лиц, общее количество адресатов не должно быть более четырех, при этом основной адресат указывается первым, слово «Копия» перед вторым, третьим, четвертым адресатами не печатается.",
+      "Исключение составляют судебные документы (исковое заявление, заявление, жалоба, отзыв, письменное возражение), в которых может указываться необходимое количество адресов в соответствии с действующим законодательством.",
+      "В случае если число адресатов более двух, обращение к адресатам не указывается.",
+      "Если письмо адресуется лицу, имеющему ученое звание или ученую степень, то перед фамилией указывается звание или степень, например:",
+      "При адресовании документов должностным лицам государственных органов, в которых предусмотрена военная или иная государственная служба, после должности указывают воинское или специальное звание. Например:",
+      "При подготовке документов, направляемых в Росреестр, филиал ППК «Роскадастр» по Пермскому краю, в органы государственной власти Пермского края и местного самоуправления в электронном виде почтовый адрес после наименования адресата не указывается, во всех остальных случаях исполнитель указывает в реквизите «Адресат» полный почтовый адрес, включая почтовый индекс. В случае необходимости направления электронной почтой (дополнительно) указывается электронный адрес.",
+      "Элементы почтового адреса указываются через запятую в установленной Правилами оказания услуг почтовой связи, утвержденными приказом Министерства связи и массовых коммуникаций Российской Федерации от 31 июля 2014 г. № 234, последовательности:",
+      "наименование адресата (для юридических лиц – полное или краткое наименование организации, для физических лиц – фамилия, инициалы);",
+      "При адресации письма физическому лицу, так же как и должностному лицу, сначала указывается фамилия, а затем инициалы получателя в дательном падеже, далее почтовый адрес либо адрес электронной почты, например:",
+      "При отправке письма по электронной почте или факсимильной связи (без досылки по почте) почтовый адрес не указывается. Указывается электронный адрес (номер телефона/факса), например:",
+      "13. Реквизит «Гриф утверждения документа» указывает на нормативный или правовой характер содержания документа. Инструкцией утвержден примерный перечень документов, которым может быть присвоен гриф об утверждении (приложение № 15).",
+      "должностным лицом (руководителем Управления (лицом, исполняющим его обязанности), его заместителями, начальниками структурных подразделений, в компетенцию которых входит решение вопросов, изложенных в утверждаемых документах);",
+      "Гриф утверждения документа проставляется в правом верхнем углу первого листа документа. Все составные части реквизита центрируются относительно самой длинной строки (не превышающей 10 см), ограниченной правой границей текстового поля документа. Слово «УТВЕРЖДАЮ», «УТВЕРЖДЕН», или «УТВЕРЖДЕНО» (без кавычек), расшифровка подписи (инициалы и фамилия) и дата утверждения (словесно-цифровым способом) отделяются полуторным межстрочным интервалом от остальных строк реквизита, которые печатаются через одинарный межстрочный интервал.",
+      "При утверждении документа должностным лицом гриф утверждения состоит из слова «УТВЕРЖДАЮ» (без кавычек), наименования должности лица, утверждающего документ, его подписи, расшифровки подписи (инициалы и фамилия) и даты утверждения, например:",
+      "(подпись)",
+      "При наличии нескольких грифов утверждения их располагают на одном уровне и первым слева – гриф инициатора издания или ответственного исполнителя документа, например:",
+      "(подпись) (подпись)",
+      "Заголовок к тексту документа формулируется исполнителем, разрабатывающим проект документа, одной фразой, должен быть максимально кратким и согласовываться с наименованием вида документа. Например: приказ (о чем?) «Об утверждении Положения…», распоряжение (о чем?) «О создании комиссии…», служебное письмо (о чем?) «О представлении предложений…», протокол (чего?) «заседания экспертной комиссии…», акт (чего?) «выполненных работ…».",
+      "При использовании углового бланка письма заголовок к тексту печатается по ширине реквизитов бланка полужирным шрифтом № 12 через одинарный межстрочный интервал и выравнивается по левой границе текстового поля.",
+      "При использовании бланков Управления «Приказ», «Распоряжение», бланка Управления с продольным расположением реквизитов, а также при подготовке проектов актов Управления заголовок печатается по ширине печатного поля над текстом документа полужирным шрифтом № 14 через одинарный межстрочный интервал и выравнивается по центру.",
+      "Текст документа должен быть составлен грамотно, ясно, понятно и по возможности кратко. Текст документа должен содержать достоверную и актуальную информацию, достаточную для принятия решений или их исполнения, не должен допускать различных толкований.",
+      "При употреблении сокращенных наименований федеральных органов исполнительной власти необходимо руководствоваться Перечнем полных и сокращенных наименований федеральных органов исполнительной власти, утвержденным распоряжением Администрации Президента Российской Федерации и Аппарата Правительства Российской Федерации от 16 июля 2008 г. № 943/788 (с последующими изменениями).",
+      "..в соответствии с Федеральным законом от 2 мая 2006 г. № 59-ФЗ «О порядке рассмотрения обращений граждан Российской Федерации»…",
+      "В деловых (служебных) письмах используется вступительное обращение:",
+      "Наименование должности во вступительном обращении пишется с прописной буквы, в обращении по фамилии инициалы лица не указываются.",
+      "16. Реквизит «отметка о приложении» содержит сведения о документе (документах), прилагаемом к сопроводительному письму, иному информационно-справочному документу, или о том, что документ является приложением к основному документу (нормативному, распорядительному или иному).",
+      "Приложения оформляются на стандартных листах бумаги и могут иметь необходимые для документа реквизиты (вид документа, заголовок, подписи ответственных исполнителей, самостоятельную нумерацию страниц и т.п.).",
+      "В служебных, в том числе сопроводительных, письмах отметка о приложении оформляется под текстом на последнем листе письма, отделяется от текста двойным межстрочным интервалом. Слово «Приложение» печатается с прописной буквы от края левого поля. После его написания ставится двоеточие. Перечень приложений печатается через один межстрочный интервал тем же шрифтом, что и основной текст документа, и нумеруется.",
+      "Отметка о наличии приложения, ссылка на которое дается в тексте служебного письма, включает сведения о количестве листов одного экземпляра приложения и количестве прилагаемых экземпляров, всегда в единственном числе, отделяется от текста и оформляется следующим образом:",
+      "Приложение: на 8 л. в 3 экз.",
+      "Если в тексте служебного письма не было ссылки на приложения, то необходимо перечислить их названия, количество листов и экземпляров каждого, например:",
+      "Приложение: 1. Бухгалтерский баланс ОАО «Роскартография»",
+      "Если служебное письмо имеет большое количество приложений, то на них составляется отдельная опись в произвольной форме, а под текстом письма указывается:",
+      "Приложение: по описи.",
+      "Если служебное письмо имеет большое количество приложений, и они указаны в тексте, то под текстом письма указывается:",
+      "Приложение: по тексту, всего на 20 л. в 1 экз.",
+      "В случае если к служебному письму прилагается документ, также имеющий приложение, отметка о наличии приложения оформляется следующим образом:",
+      "Приложение: заключение экспертной комиссии от 22.02.2025 № 11 и приложение к нему, всего на 15 л. в 2 экз.",
+      "Если приложения направляются не во все указанные в служебном письме адреса, отметка о наличии приложений имеет следующее оформление:",
+      "Приложение: на 3 л. в 2 экз. во второй адрес.",
+      "В случае если приложения сброшюрованы, указывается только количество экземпляров (без указания количества листов) одним из двух способов в зависимости от того, имеется ссылка на наименование приложения в тексте служебного письма или нет, например:",
+      "Приложение: брошюра в 2 экз.",
+      "Приложение: техническое задание на разработку системы «Электронный архив» в 2 экз.",
+      "Если приложением являются документы, записанные на физически обособленный электронный носитель:",
+      "Приложение: CD-R 1 шт.",
+      "Если приложение к документу направляется в электронном виде без материального носителя, то необходимо указать:",
+      "Приложение: 1 файл в электронном виде",
+      "При этом нумерация страниц документа и приложений, входящих в состав этого документа, должна быть сквозная.",
+      "19. Реквизит «подпись» включает: наименование должности лица, подписавшего документ, его собственноручную подпись, инициалы и фамилию.",
+      "Наименование должности отделяется от последней строки текста тройным межстрочным интервалом и в случае, если оформляется в две и более строки, печатается от левой границы текстового поля через одинарный межстрочный интервал. Все строки реквизита центрируются по отношению к самой длинной строке.",
+      "Расшифровка подписи располагается на уровне последней строки наименования должности с пробелом между инициалами и фамилией (инициалы пишутся перед фамилией). Последняя буква фамилии в расшифровке подписи ограничивается правой границей текстового поля.",
+      "Если документ оформлен на бланке Управления в состав подписи входят сокращенное наименование должности лица, подписывающего документ, личная подпись и ее расшифровка (инициалы и фамилия), например:",
+      "(подпись)",
+      "Если документ оформлен на бланке должностного лица наименование должности лица, подписавшего документ, не указывается. Подпись оформляется следующим образом:",
+      "(подпись)",
+      "Если документ, оформленный на бланке Управления, подписывает начальник структурного подразделения, то в состав подписи включаются полное наименование должности лица, подписывающего документ, наименование структурного подразделения, личная подпись и ее расшифровка (инициалы и фамилия), например:",
+      "(подпись)",
+      "Если документ оформлен не на бланке Управления, то в состав подписи включаются полное наименование должности лица, подписавшего документ, наименование Управления, личная подпись и ее расшифровка (инициалы и фамилия), например:"
+    ],
+    "requirements_file": "требования к исходящим .xlsx",
+    "requirements_rows": [],
+    "requirements_note": "openpyxl не установлен, XLSX-требования не прочитаны"
+  },
+  "cases": [
+    {
+      "name": "001_адресат  по СЭД+эл__original",
+      "source": "D:\\Study\\Diplom\\data\\адресат  по СЭД+эл.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\001_адресат  по СЭД+эл__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "002_адресат  по СЭД+эл__wrong_gender",
+      "source": "D:\\Study\\Diplom\\data\\адресат  по СЭД+эл.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\002_адресат  по СЭД+эл__wrong_gender.docx",
+      "mutation": "wrong_gender",
+      "note": "Меняем род/число слова обращения.",
+      "assertions": [
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "error_gender",
+          "actual": "error_gender"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "003_адресат  по СЭД+эл__wrong_initial",
+      "source": "D:\\Study\\Diplom\\data\\адресат  по СЭД+эл.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\003_адресат  по СЭД+эл__wrong_initial.docx",
+      "mutation": "wrong_initial",
+      "note": "Меняем имя в обращении так, чтобы первая буква не совпала с инициалом адресата.",
+      "assertions": [
+        {
+          "category": "check_initials",
+          "name": "check_initials.status",
+          "passed": true,
+          "expected": "error_mismatch",
+          "actual": "error_mismatch"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "error_mismatch",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "004_адресат  по СЭД+эл__remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\адресат  по СЭД+эл.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\004_адресат  по СЭД+эл__remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "005_адресат  по СЭД+эл__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\адресат  по СЭД+эл.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\005_адресат  по СЭД+эл__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "006_адресат  по СЭД+эл__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\адресат  по СЭД+эл.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\006_адресат  по СЭД+эл__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "007_адресат  по СЭД+эл__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\адресат  по СЭД+эл.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\007_адресат  по СЭД+эл__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "008_адресат  по СЭД+эл__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\адресат  по СЭД+эл.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\008_адресат  по СЭД+эл__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "009_адресат (бумага+электрон)__original",
+      "source": "D:\\Study\\Diplom\\data\\адресат (бумага+электрон).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\009_адресат (бумага+электрон)__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "010_адресат (бумага+электрон)__wrong_gender",
+      "source": "D:\\Study\\Diplom\\data\\адресат (бумага+электрон).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\010_адресат (бумага+электрон)__wrong_gender.docx",
+      "mutation": "wrong_gender",
+      "note": "Меняем род/число слова обращения.",
+      "assertions": [
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "error_gender",
+          "actual": "error_gender"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "011_адресат (бумага+электрон)__wrong_initial",
+      "source": "D:\\Study\\Diplom\\data\\адресат (бумага+электрон).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\011_адресат (бумага+электрон)__wrong_initial.docx",
+      "mutation": "wrong_initial",
+      "note": "Меняем имя в обращении так, чтобы первая буква не совпала с инициалом адресата.",
+      "assertions": [
+        {
+          "category": "check_initials",
+          "name": "check_initials.status",
+          "passed": true,
+          "expected": "error_mismatch",
+          "actual": "error_mismatch"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "error_mismatch",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "012_адресат (бумага+электрон)__remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\адресат (бумага+электрон).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\012_адресат (бумага+электрон)__remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "013_адресат (бумага+электрон)__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\адресат (бумага+электрон).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\013_адресат (бумага+электрон)__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "014_адресат (бумага+электрон)__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\адресат (бумага+электрон).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\014_адресат (бумага+электрон)__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "015_адресат (бумага+электрон)__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\адресат (бумага+электрон).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\015_адресат (бумага+электрон)__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "016_адресат (бумага+электрон)__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\адресат (бумага+электрон).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\016_адресат (бумага+электрон)__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "017_адресат - три адресата __original",
+      "source": "D:\\Study\\Diplom\\data\\адресат - три адресата .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\017_адресат - три адресата __original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_collective",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "018_адресат - три адресата __remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\адресат - три адресата .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\018_адресат - три адресата __remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "019_адресат - три адресата __remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\адресат - три адресата .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\019_адресат - три адресата __remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "020_адресат - три адресата __remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\адресат - три адресата .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\020_адресат - три адресата __remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_collective",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "021_адресат - три адресата __remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\адресат - три адресата .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\021_адресат - три адресата __remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_collective",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "022_адресат - три адресата __bad_normative_number",
+      "source": "D:\\Study\\Diplom\\data\\адресат - три адресата .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\022_адресат - три адресата __bad_normative_number.docx",
+      "mutation": "bad_normative_number",
+      "note": "Удаляем номер из нормативной ссылки.",
+      "assertions": [
+        {
+          "category": "check_spelling",
+          "name": "check_spelling.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_spelling",
+          "name": "check_spelling_normative",
+          "passed": true,
+          "expected": "normative",
+          "actual": [
+            "normative"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_collective",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "023_адресат - три адресата __bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\адресат - три адресата .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\023_адресат - три адресата __bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_collective",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "024_адресат в суд__original",
+      "source": "D:\\Study\\Diplom\\data\\адресат в суд.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\024_адресат в суд__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "court_letter"
+      }
+    },
+    {
+      "name": "025_адресат в суд__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\адресат в суд.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\025_адресат в суд__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee",
+            "has_greeting"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "026_адресат в суд__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\адресат в суд.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\026_адресат в суд__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "court_letter"
+      }
+    },
+    {
+      "name": "027_адресат в суд__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\адресат в суд.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\027_адресат в суд__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "court_letter"
+      }
+    },
+    {
+      "name": "028_адресат в суд__bad_normative_number",
+      "source": "D:\\Study\\Diplom\\data\\адресат в суд.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\028_адресат в суд__bad_normative_number.docx",
+      "mutation": "bad_normative_number",
+      "note": "Удаляем номер из нормативной ссылки.",
+      "assertions": [
+        {
+          "category": "check_spelling",
+          "name": "check_spelling.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_spelling",
+          "name": "check_spelling_normative",
+          "passed": true,
+          "expected": "normative",
+          "actual": [
+            "normative"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "court_letter"
+      }
+    },
+    {
+      "name": "029_адресат в суд__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\адресат в суд.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\029_адресат в суд__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "court_letter"
+      }
+    },
+    {
+      "name": "030_адресат общий__original",
+      "source": "D:\\Study\\Diplom\\data\\адресат общий.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\030_адресат общий__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "031_адресат общий__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\адресат общий.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\031_адресат общий__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "032_адресат общий__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\адресат общий.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\032_адресат общий__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "033_адресат общий__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\адресат общий.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\033_адресат общий__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "034_адресат общий__bad_normative_number",
+      "source": "D:\\Study\\Diplom\\data\\адресат общий.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\034_адресат общий__bad_normative_number.docx",
+      "mutation": "bad_normative_number",
+      "note": "Удаляем номер из нормативной ссылки.",
+      "assertions": [
+        {
+          "category": "check_spelling",
+          "name": "check_spelling.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_spelling",
+          "name": "check_spelling_normative",
+          "passed": true,
+          "expected": "normative",
+          "actual": [
+            "normative"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "035_адресат общий__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\адресат общий.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\035_адресат общий__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "036_адресат СЭД+почта__original",
+      "source": "D:\\Study\\Diplom\\data\\адресат СЭД+почта.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\036_адресат СЭД+почта__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "error_mismatch",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "037_адресат СЭД+почта__wrong_gender",
+      "source": "D:\\Study\\Diplom\\data\\адресат СЭД+почта.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\037_адресат СЭД+почта__wrong_gender.docx",
+      "mutation": "wrong_gender",
+      "note": "Меняем род/число слова обращения.",
+      "assertions": [
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "error_gender",
+          "actual": "error_gender"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "error_mismatch",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "038_адресат СЭД+почта__wrong_initial",
+      "source": "D:\\Study\\Diplom\\data\\адресат СЭД+почта.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\038_адресат СЭД+почта__wrong_initial.docx",
+      "mutation": "wrong_initial",
+      "note": "Меняем имя в обращении так, чтобы первая буква не совпала с инициалом адресата.",
+      "assertions": [
+        {
+          "category": "check_initials",
+          "name": "check_initials.status",
+          "passed": true,
+          "expected": "error_mismatch",
+          "actual": "error_mismatch"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "error_mismatch",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "039_адресат СЭД+почта__remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\адресат СЭД+почта.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\039_адресат СЭД+почта__remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "040_адресат СЭД+почта__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\адресат СЭД+почта.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\040_адресат СЭД+почта__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "041_адресат СЭД+почта__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\адресат СЭД+почта.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\041_адресат СЭД+почта__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "error_mismatch",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "042_адресат СЭД+почта__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\адресат СЭД+почта.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\042_адресат СЭД+почта__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "error_mismatch",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "043_адресат СЭД+почта__bad_normative_number",
+      "source": "D:\\Study\\Diplom\\data\\адресат СЭД+почта.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\043_адресат СЭД+почта__bad_normative_number.docx",
+      "mutation": "bad_normative_number",
+      "note": "Удаляем номер из нормативной ссылки.",
+      "assertions": [
+        {
+          "category": "check_spelling",
+          "name": "check_spelling.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_spelling",
+          "name": "check_spelling_normative",
+          "passed": true,
+          "expected": "normative",
+          "actual": [
+            "normative"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "error_mismatch",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "044_адресат СЭД+почта__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\адресат СЭД+почта.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\044_адресат СЭД+почта__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "error_mismatch",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "045_адресат только электрон__original",
+      "source": "D:\\Study\\Diplom\\data\\адресат только электрон.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\045_адресат только электрон__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "046_адресат только электрон__wrong_gender",
+      "source": "D:\\Study\\Diplom\\data\\адресат только электрон.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\046_адресат только электрон__wrong_gender.docx",
+      "mutation": "wrong_gender",
+      "note": "Меняем род/число слова обращения.",
+      "assertions": [
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "error_gender",
+          "actual": "error_gender"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "047_адресат только электрон__wrong_initial",
+      "source": "D:\\Study\\Diplom\\data\\адресат только электрон.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\047_адресат только электрон__wrong_initial.docx",
+      "mutation": "wrong_initial",
+      "note": "Меняем имя в обращении так, чтобы первая буква не совпала с инициалом адресата.",
+      "assertions": [
+        {
+          "category": "check_initials",
+          "name": "check_initials.status",
+          "passed": true,
+          "expected": "error_mismatch",
+          "actual": "error_mismatch"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "error_mismatch",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "048_адресат только электрон__remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\адресат только электрон.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\048_адресат только электрон__remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "049_адресат только электрон__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\адресат только электрон.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\049_адресат только электрон__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "050_адресат только электрон__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\адресат только электрон.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\050_адресат только электрон__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "051_адресат только электрон__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\адресат только электрон.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\051_адресат только электрон__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "052_адресат только электрон__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\адресат только электрон.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\052_адресат только электрон__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "053_без обращения__original",
+      "source": "D:\\Study\\Diplom\\data\\без обращения.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\053_без обращения__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "054_без обращения__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\без обращения.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\054_без обращения__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "055_без обращения__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\без обращения.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\055_без обращения__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "056_без обращения__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\без обращения.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\056_без обращения__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "057_без обращения__bad_normative_number",
+      "source": "D:\\Study\\Diplom\\data\\без обращения.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\057_без обращения__bad_normative_number.docx",
+      "mutation": "bad_normative_number",
+      "note": "Удаляем номер из нормативной ссылки.",
+      "assertions": [
+        {
+          "category": "check_spelling",
+          "name": "check_spelling.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_spelling",
+          "name": "check_spelling_normative",
+          "passed": true,
+          "expected": "normative",
+          "actual": [
+            "normative"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "058_без обращения__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\без обращения.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\058_без обращения__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "059_без приложений __original",
+      "source": "D:\\Study\\Diplom\\data\\без приложений .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\059_без приложений __original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_collective",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "060_без приложений __remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\без приложений .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\060_без приложений __remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "061_без приложений __remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\без приложений .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\061_без приложений __remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "062_без приложений __remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\без приложений .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\062_без приложений __remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_collective",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "063_без приложений __remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\без приложений .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\063_без приложений __remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_collective",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "064_без приложений __bad_normative_number",
+      "source": "D:\\Study\\Diplom\\data\\без приложений .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\064_без приложений __bad_normative_number.docx",
+      "mutation": "bad_normative_number",
+      "note": "Удаляем номер из нормативной ссылки.",
+      "assertions": [
+        {
+          "category": "check_spelling",
+          "name": "check_spelling.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_spelling",
+          "name": "check_spelling_normative",
+          "passed": true,
+          "expected": "normative",
+          "actual": [
+            "normative"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_collective",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "065_без приложений __bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\без приложений .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\065_без приложений __bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok_collective",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "066_исполнитель__original",
+      "source": "D:\\Study\\Diplom\\data\\исполнитель.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\066_исполнитель__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "067_исполнитель__wrong_gender",
+      "source": "D:\\Study\\Diplom\\data\\исполнитель.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\067_исполнитель__wrong_gender.docx",
+      "mutation": "wrong_gender",
+      "note": "Меняем род/число слова обращения.",
+      "assertions": [
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "error_gender",
+          "actual": "error_gender"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "068_исполнитель__wrong_initial",
+      "source": "D:\\Study\\Diplom\\data\\исполнитель.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\068_исполнитель__wrong_initial.docx",
+      "mutation": "wrong_initial",
+      "note": "Меняем имя в обращении так, чтобы первая буква не совпала с инициалом адресата.",
+      "assertions": [
+        {
+          "category": "check_initials",
+          "name": "check_initials.status",
+          "passed": true,
+          "expected": "error_mismatch",
+          "actual": "error_mismatch"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "error_mismatch",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "069_исполнитель__remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\исполнитель.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\069_исполнитель__remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "070_исполнитель__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\исполнитель.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\070_исполнитель__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "071_исполнитель__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\исполнитель.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\071_исполнитель__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "072_исполнитель__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\исполнитель.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\072_исполнитель__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "073_исполнитель__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\исполнитель.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\073_исполнитель__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "074_обращение 2 человека__original",
+      "source": "D:\\Study\\Diplom\\data\\обращение 2 человека.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\074_обращение 2 человека__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "075_обращение 2 человека__wrong_gender",
+      "source": "D:\\Study\\Diplom\\data\\обращение 2 человека.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\075_обращение 2 человека__wrong_gender.docx",
+      "mutation": "wrong_gender",
+      "note": "Меняем род/число слова обращения.",
+      "assertions": [
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "error_gender",
+          "actual": "error_gender"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "076_обращение 2 человека__wrong_initial",
+      "source": "D:\\Study\\Diplom\\data\\обращение 2 человека.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\076_обращение 2 человека__wrong_initial.docx",
+      "mutation": "wrong_initial",
+      "note": "Меняем имя в обращении так, чтобы первая буква не совпала с инициалом адресата.",
+      "assertions": [
+        {
+          "category": "check_initials",
+          "name": "check_initials.status",
+          "passed": true,
+          "expected": "error_mismatch",
+          "actual": "error_mismatch"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "error_mismatch",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "077_обращение 2 человека__remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\обращение 2 человека.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\077_обращение 2 человека__remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "078_обращение 2 человека__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\обращение 2 человека.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\078_обращение 2 человека__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "079_обращение 2 человека__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\обращение 2 человека.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\079_обращение 2 человека__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "080_обращение 2 человека__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\обращение 2 человека.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\080_обращение 2 человека__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "081_обращение 2 человека__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\обращение 2 человека.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\081_обращение 2 человека__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "082_обращение к коллегам__original",
+      "source": "D:\\Study\\Diplom\\data\\обращение к коллегам.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\082_обращение к коллегам__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "083_обращение к коллегам__remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\обращение к коллегам.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\083_обращение к коллегам__remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_header",
+            "has_addressee",
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "084_обращение к коллегам__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\обращение к коллегам.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\084_обращение к коллегам__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "085_обращение к коллегам__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\обращение к коллегам.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\085_обращение к коллегам__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "086_обращение к коллегам__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\обращение к коллегам.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\086_обращение к коллегам__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "087_обращение к коллегам__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\обращение к коллегам.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\087_обращение к коллегам__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "088_оформление без обращения - название __original",
+      "source": "D:\\Study\\Diplom\\data\\оформление без обращения - название .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\088_оформление без обращения - название __original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "court_letter"
+      }
+    },
+    {
+      "name": "089_оформление без обращения - название __remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\оформление без обращения - название .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\089_оформление без обращения - название __remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "090_оформление без обращения - название __remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\оформление без обращения - название .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\090_оформление без обращения - название __remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "court_letter"
+      }
+    },
+    {
+      "name": "091_оформление без обращения - название __remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\оформление без обращения - название .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\091_оформление без обращения - название __remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "court_letter"
+      }
+    },
+    {
+      "name": "092_оформление без обращения - название __bad_normative_number",
+      "source": "D:\\Study\\Diplom\\data\\оформление без обращения - название .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\092_оформление без обращения - название __bad_normative_number.docx",
+      "mutation": "bad_normative_number",
+      "note": "Удаляем номер из нормативной ссылки.",
+      "assertions": [
+        {
+          "category": "check_spelling",
+          "name": "check_spelling.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_spelling",
+          "name": "check_spelling_normative",
+          "passed": true,
+          "expected": "normative",
+          "actual": [
+            "normative"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "court_letter"
+      }
+    },
+    {
+      "name": "093_оформление без обращения - название __bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\оформление без обращения - название .docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\093_оформление без обращения - название __bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "court_letter"
+      }
+    },
+    {
+      "name": "094_приложение в 2 адреса__original",
+      "source": "D:\\Study\\Diplom\\data\\приложение в 2 адреса.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\094_приложение в 2 адреса__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "095_приложение в 2 адреса__wrong_gender",
+      "source": "D:\\Study\\Diplom\\data\\приложение в 2 адреса.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\095_приложение в 2 адреса__wrong_gender.docx",
+      "mutation": "wrong_gender",
+      "note": "Меняем род/число слова обращения.",
+      "assertions": [
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "error_gender",
+          "actual": "error_gender"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "096_приложение в 2 адреса__wrong_initial",
+      "source": "D:\\Study\\Diplom\\data\\приложение в 2 адреса.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\096_приложение в 2 адреса__wrong_initial.docx",
+      "mutation": "wrong_initial",
+      "note": "Меняем имя в обращении так, чтобы первая буква не совпала с инициалом адресата.",
+      "assertions": [
+        {
+          "category": "check_initials",
+          "name": "check_initials.status",
+          "passed": true,
+          "expected": "error_mismatch",
+          "actual": "error_mismatch"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "error_mismatch",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "097_приложение в 2 адреса__remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\приложение в 2 адреса.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\097_приложение в 2 адреса__remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "098_приложение в 2 адреса__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\приложение в 2 адреса.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\098_приложение в 2 адреса__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "099_приложение в 2 адреса__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\приложение в 2 адреса.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\099_приложение в 2 адреса__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "100_приложение в 2 адреса__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\приложение в 2 адреса.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\100_приложение в 2 адреса__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "101_приложение в 2 адреса__remove_attachment",
+      "source": "D:\\Study\\Diplom\\data\\приложение в 2 адреса.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\101_приложение в 2 адреса__remove_attachment.docx",
+      "mutation": "remove_attachment",
+      "note": "Переименовываем реквизит «Приложение:», чтобы блок перестал распознаваться.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_attachment",
+          "passed": true,
+          "expected": "has_attachment",
+          "actual": [
+            "has_attachment"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "102_приложение в 2 адреса__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\приложение в 2 адреса.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\102_приложение в 2 адреса__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "103_приложение на бумаге__original",
+      "source": "D:\\Study\\Diplom\\data\\приложение на бумаге.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\103_приложение на бумаге__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "104_приложение на бумаге__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\приложение на бумаге.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\104_приложение на бумаге__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "105_приложение на бумаге__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\приложение на бумаге.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\105_приложение на бумаге__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "106_приложение на бумаге__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\приложение на бумаге.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\106_приложение на бумаге__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "107_приложение на бумаге__remove_attachment",
+      "source": "D:\\Study\\Diplom\\data\\приложение на бумаге.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\107_приложение на бумаге__remove_attachment.docx",
+      "mutation": "remove_attachment",
+      "note": "Переименовываем реквизит «Приложение:», чтобы блок перестал распознаваться.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_attachment",
+          "passed": true,
+          "expected": "has_attachment",
+          "actual": [
+            "has_attachment"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "108_приложение на бумаге__bad_normative_number",
+      "source": "D:\\Study\\Diplom\\data\\приложение на бумаге.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\108_приложение на бумаге__bad_normative_number.docx",
+      "mutation": "bad_normative_number",
+      "note": "Удаляем номер из нормативной ссылки.",
+      "assertions": [
+        {
+          "category": "check_spelling",
+          "name": "check_spelling.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_spelling",
+          "name": "check_spelling_normative",
+          "passed": true,
+          "expected": "normative",
+          "actual": [
+            "normative"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "109_приложение на бумаге__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\приложение на бумаге.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\109_приложение на бумаге__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "110_приложение развернутое__original",
+      "source": "D:\\Study\\Diplom\\data\\приложение развернутое.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\110_приложение развернутое__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "111_приложение развернутое__wrong_gender",
+      "source": "D:\\Study\\Diplom\\data\\приложение развернутое.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\111_приложение развернутое__wrong_gender.docx",
+      "mutation": "wrong_gender",
+      "note": "Меняем род/число слова обращения.",
+      "assertions": [
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "error_gender",
+          "actual": "error_gender"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "112_приложение развернутое__wrong_initial",
+      "source": "D:\\Study\\Diplom\\data\\приложение развернутое.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\112_приложение развернутое__wrong_initial.docx",
+      "mutation": "wrong_initial",
+      "note": "Меняем имя в обращении так, чтобы первая буква не совпала с инициалом адресата.",
+      "assertions": [
+        {
+          "category": "check_initials",
+          "name": "check_initials.status",
+          "passed": true,
+          "expected": "error_mismatch",
+          "actual": "error_mismatch"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "error_mismatch",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "113_приложение развернутое__remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\приложение развернутое.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\113_приложение развернутое__remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "114_приложение развернутое__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\приложение развернутое.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\114_приложение развернутое__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "115_приложение развернутое__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\приложение развернутое.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\115_приложение развернутое__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "116_приложение развернутое__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\приложение развернутое.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\116_приложение развернутое__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "117_приложение развернутое__remove_attachment",
+      "source": "D:\\Study\\Diplom\\data\\приложение развернутое.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\117_приложение развернутое__remove_attachment.docx",
+      "mutation": "remove_attachment",
+      "note": "Переименовываем реквизит «Приложение:», чтобы блок перестал распознаваться.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_attachment",
+          "passed": true,
+          "expected": "has_attachment",
+          "actual": [
+            "has_attachment"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "118_приложение развернутое__bad_normative_number",
+      "source": "D:\\Study\\Diplom\\data\\приложение развернутое.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\118_приложение развернутое__bad_normative_number.docx",
+      "mutation": "bad_normative_number",
+      "note": "Удаляем номер из нормативной ссылки.",
+      "assertions": [
+        {
+          "category": "check_spelling",
+          "name": "check_spelling.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_spelling",
+          "name": "check_spelling_normative",
+          "passed": true,
+          "expected": "normative",
+          "actual": [
+            "normative"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "119_приложение развернутое__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\приложение развернутое.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\119_приложение развернутое__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "120_текст  куар-код 1__original",
+      "source": "D:\\Study\\Diplom\\data\\текст  куар-код 1.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\120_текст  куар-код 1__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "121_текст  куар-код 1__wrong_gender",
+      "source": "D:\\Study\\Diplom\\data\\текст  куар-код 1.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\121_текст  куар-код 1__wrong_gender.docx",
+      "mutation": "wrong_gender",
+      "note": "Меняем род/число слова обращения.",
+      "assertions": [
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "error_gender",
+          "actual": "error_gender"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "122_текст  куар-код 1__wrong_initial",
+      "source": "D:\\Study\\Diplom\\data\\текст  куар-код 1.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\122_текст  куар-код 1__wrong_initial.docx",
+      "mutation": "wrong_initial",
+      "note": "Меняем имя в обращении так, чтобы первая буква не совпала с инициалом адресата.",
+      "assertions": [
+        {
+          "category": "check_initials",
+          "name": "check_initials.status",
+          "passed": true,
+          "expected": "error_mismatch",
+          "actual": "error_mismatch"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "error_mismatch",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "123_текст  куар-код 1__remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\текст  куар-код 1.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\123_текст  куар-код 1__remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "124_текст  куар-код 1__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\текст  куар-код 1.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\124_текст  куар-код 1__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "125_текст  куар-код 1__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\текст  куар-код 1.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\125_текст  куар-код 1__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "126_текст  куар-код 1__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\текст  куар-код 1.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\126_текст  куар-код 1__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "127_текст  куар-код 1__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\текст  куар-код 1.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\127_текст  куар-код 1__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "128_текст (ссылки)__original",
+      "source": "D:\\Study\\Diplom\\data\\текст (ссылки).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\128_текст (ссылки)__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "129_текст (ссылки)__wrong_gender",
+      "source": "D:\\Study\\Diplom\\data\\текст (ссылки).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\129_текст (ссылки)__wrong_gender.docx",
+      "mutation": "wrong_gender",
+      "note": "Меняем род/число слова обращения.",
+      "assertions": [
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "error_gender",
+          "actual": "error_gender"
+        }
+      ],
+      "observed": {
+        "check_gender": "error_gender",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "130_текст (ссылки)__wrong_initial",
+      "source": "D:\\Study\\Diplom\\data\\текст (ссылки).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\130_текст (ссылки)__wrong_initial.docx",
+      "mutation": "wrong_initial",
+      "note": "Меняем имя в обращении так, чтобы первая буква не совпала с инициалом адресата.",
+      "assertions": [
+        {
+          "category": "check_initials",
+          "name": "check_initials.status",
+          "passed": true,
+          "expected": "error_mismatch",
+          "actual": "error_mismatch"
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "error_mismatch",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "131_текст (ссылки)__remove_greeting",
+      "source": "D:\\Study\\Diplom\\data\\текст (ссылки).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\131_текст (ссылки)__remove_greeting.docx",
+      "mutation": "remove_greeting",
+      "note": "Удаляем обращение из письма, где оно обязательно.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_greeting",
+          "passed": true,
+          "expected": "has_greeting",
+          "actual": [
+            "has_greeting"
+          ]
+        },
+        {
+          "category": "check_gender",
+          "name": "check_gender.status",
+          "passed": true,
+          "expected": "skip",
+          "actual": "skip"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_greeting",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "132_текст (ссылки)__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\текст (ссылки).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\132_текст (ссылки)__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "133_текст (ссылки)__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\текст (ссылки).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\133_текст (ссылки)__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "134_текст (ссылки)__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\текст (ссылки).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\134_текст (ссылки)__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "135_текст (ссылки)__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\текст (ссылки).docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\135_текст (ссылки)__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "ok",
+        "check_initials": "ok",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_letter"
+      }
+    },
+    {
+      "name": "136_тема__original",
+      "source": "D:\\Study\\Diplom\\data\\тема.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\136_тема__original.docx",
+      "mutation": "original",
+      "note": "Оригинальный шаблон из корпуса не должен давать ошибок обязательных блоков и интервала.",
+      "assertions": [
+        {
+          "category": "check_required_blocks",
+          "name": "check_required_blocks.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "ok",
+          "actual": "ok"
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "137_тема__remove_addressee",
+      "source": "D:\\Study\\Diplom\\data\\тема.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\137_тема__remove_addressee.docx",
+      "mutation": "remove_addressee",
+      "note": "Удаляем адресата из шапки.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_addressee",
+          "passed": true,
+          "expected": "has_addressee",
+          "actual": [
+            "has_addressee"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "138_тема__remove_signature",
+      "source": "D:\\Study\\Diplom\\data\\тема.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\138_тема__remove_signature.docx",
+      "mutation": "remove_signature",
+      "note": "Удаляем реквизит подписи.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_signature",
+          "passed": true,
+          "expected": "has_signature",
+          "actual": [
+            "has_signature"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "139_тема__remove_executor",
+      "source": "D:\\Study\\Diplom\\data\\тема.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\139_тема__remove_executor.docx",
+      "mutation": "remove_executor",
+      "note": "Удаляем отметку об исполнителе/телефон.",
+      "assertions": [
+        {
+          "category": "required_blocks",
+          "name": "missing_has_executor",
+          "passed": true,
+          "expected": "has_executor",
+          "actual": [
+            "has_executor"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "has_errors",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "140_тема__bad_normative_number",
+      "source": "D:\\Study\\Diplom\\data\\тема.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\140_тема__bad_normative_number.docx",
+      "mutation": "bad_normative_number",
+      "note": "Удаляем номер из нормативной ссылки.",
+      "assertions": [
+        {
+          "category": "check_spelling",
+          "name": "check_spelling.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_spelling",
+          "name": "check_spelling_normative",
+          "passed": true,
+          "expected": "normative",
+          "actual": [
+            "normative"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "has_errors",
+        "check_required_blocks": "ok",
+        "check_layout": "ok",
+        "document_type": "outgoing_without_greeting"
+      }
+    },
+    {
+      "name": "141_тема__bad_line_spacing",
+      "source": "D:\\Study\\Diplom\\data\\тема.docx",
+      "file": "D:\\Study\\Diplom\\test\\letter-checker-smart\\backend\\tests\\generated_realistic_cases\\141_тема__bad_line_spacing.docx",
+      "mutation": "bad_line_spacing",
+      "note": "Ставим в основном тексте тройной межстрочный интервал.",
+      "assertions": [
+        {
+          "category": "check_layout",
+          "name": "check_layout.status",
+          "passed": true,
+          "expected": "has_errors",
+          "actual": "has_errors"
+        },
+        {
+          "category": "check_layout",
+          "name": "check_layout_line_spacing",
+          "passed": true,
+          "expected": "line_spacing",
+          "actual": [
+            "line_spacing"
+          ]
+        }
+      ],
+      "observed": {
+        "check_gender": "skip",
+        "check_initials": "ok_no_fio",
+        "check_spelling": "ok",
+        "check_required_blocks": "ok",
+        "check_layout": "has_errors",
+        "document_type": "outgoing_without_greeting"
+      }
+    }
+  ]
+}
