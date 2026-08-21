@@ -37,14 +37,16 @@ export function DropZone({ onFile }) {
   }
 
   return (
-    <Dragger {...uploadProps}>
-      <p className="ant-upload-drag-icon">
-        <InboxOutlined />
-      </p>
-      <p className="ant-upload-text">Нажмите или перетащите файл сюда</p>
-      <p className="ant-upload-hint">
-        Поддерживаются только файлы .docx. Максимальный размер: 10MB.
-      </p>
-    </Dragger>
+    <div className="drop-zone-center">
+      <Dragger {...uploadProps}>
+        <p className="ant-upload-drag-icon">
+          <InboxOutlined />
+        </p>
+        <p className="ant-upload-text">Нажмите или перетащите файл сюда</p>
+        <p className="ant-upload-hint">
+          Поддерживаются только файлы .docx. Максимальный размер: 10MB.
+        </p>
+      </Dragger>
+    </div>
   )
 }

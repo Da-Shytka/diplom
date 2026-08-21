@@ -11,6 +11,7 @@ export function statusLabel(status) {
     error_gender:               'Неверный род',
     error_mismatch:             'Инициалы не совпадают',
     error_personal_to_multiple: 'Личное при нескольких адресатах',
+    error_too_many_addressees_greeting: 'Обращение лишнее',
     error_exception:            'Ошибка обработки',
     llm_error:                  'Ошибка LLM',
   }

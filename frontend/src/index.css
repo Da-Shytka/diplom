@@ -24,6 +24,24 @@ body {
   padding: 18px;
 }
 
+.drop-zone-center {
+  min-height: calc(100vh - 230px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-zone-center .ant-upload-wrapper {
+  width: min(100%, 620px);
+}
+
+.drop-zone-center .ant-upload-drag {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .document-paper {
   width: min(100%, 860px);
   margin: 0 auto;
@@ -152,6 +170,10 @@ body {
 
   .document-header > div > div {
     text-align: left !important;
+  }
+
+  .drop-zone-center {
+    min-height: 260px;
   }
 
   .required-blocks-grid {

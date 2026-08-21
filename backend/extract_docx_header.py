@@ -114,6 +114,26 @@ DOCUMENT_TYPE_LABELS = {
     "outgoing_without_greeting": "Исходящее письмо без обращения",
     "court_letter": "Письмо в суд",
 }
+TEXT_RULES = (
+    {
+        "pattern": re.compile(r"\bв течении\b", re.IGNORECASE),
+        "corrected": "в течение",
+        "type": "spelling",
+        "description": "В значении периода времени используется форма «в течение».",
+    },
+    {
+        "pattern": re.compile(r"\bсогласно\s+([А-Яа-яЁё]+а)\b", re.IGNORECASE),
+        "corrected": "согласно + дательный падеж",
+        "type": "style",
+        "description": "После «согласно» требуется дательный падеж: согласно приказу, письму, договору.",
+    },
+    {
+        "pattern": re.compile(r"\b(короче|типа|окей|ребят[а-я]*|привет)\b", re.IGNORECASE),
+        "corrected": "замените на нейтральную официально-деловую формулировку",
+        "type": "style",
+        "description": "Разговорная лексика не подходит для официально-делового письма.",
+    },
+)
 
 
 @dataclass
@@ -444,7 +464,7 @@ def check_gender(greeting_text: str | None, fio_list: list[dict[str, Any]], pars
 
 def check_gender_llm(greeting_text: str, fio_list: list[dict[str, Any]], parsed: dict[str, Any]) -> dict[str, Any]:
     if os.getenv("LETTERCHECK_DISABLE_LLM") == "1":
-        return {"status": "skip", "details": "LLM отключена для детерминированного тестового запуска"}
+        return {"status": "skip", "details": "LLM отключена настройкой окружения"}
 
     prompt = f"""Ты проверяешь русское деловое письмо.
 
@@ -486,6 +506,16 @@ def check_gender_llm(greeting_text: str, fio_list: list[dict[str, Any]], parsed:
 
 def _compare_one(fio: dict[str, Any], person: dict[str, Any]) -> list[dict[str, Any]]:
     errors: list[dict[str, Any]] = []
+    if (
+        fio.get("surname")
+        and person.get("surname")
+        and fio["surname"].lower() != person["surname"].lower()
+    ):
+        errors.append({
+            "title": "Ошибка в фамилии",
+            "description": f"В шапке указана фамилия «{fio['surname']}», в обращении — «{person['surname']}».",
+            "corrected": f"Используйте фамилию «{fio['surname']}» либо уберите фамилию из обращения.",
+        })
     if fio.get("i1") and person.get("i1") and fio["i1"].upper() != person["i1"].upper():
         errors.append({
             "title": "Ошибка в имени",
@@ -513,6 +543,19 @@ def check_initials(fio_list: list[dict[str, Any]], greeting: dict[str, Any]) -> 
 
     if not fio_list:
         return {"status": "ok_no_fio", "details": "Адресат без распознанного физического лица"}
+    if len(fio_list) > 2 and (persons or is_collective):
+        return {
+            "status": "error_too_many_addressees_greeting",
+            "details": (
+                "В шапке больше двух адресатов. По инструкции в таком случае "
+                "вступительное обращение не указывается."
+            ),
+            "errors": [{
+                "title": "Обращение при большом числе адресатов",
+                "description": "Если адресатов больше двух, обращение к адресатам следует убрать.",
+                "corrected": "Удалите вступительное обращение.",
+            }],
+        }
     if is_collective:
         if len(fio_list) == 1:
             return {
@@ -551,7 +594,7 @@ def check_initials(fio_list: list[dict[str, Any]], greeting: dict[str, Any]) -> 
             "details": "; ".join(error["description"] for error in all_errors),
             "errors": all_errors,
         }
-    return {"status": "ok", "details": "Инициалы в шапке и обращении согласованы"}
+    return {"status": "ok", "details": "Фамилия и инициалы в шапке и обращении согласованы"}
 
 
 def _line_offsets(text: str, phrase: str) -> tuple[int, int] | None:
@@ -597,11 +640,83 @@ def check_normative_links(body_text: str) -> list[dict[str, Any]]:
     return errors
 
 
+def _is_url_or_email_context(text: str, start: int, end: int) -> bool:
+    window = text[max(0, start - 32): min(len(text), end + 32)].lower()
+    return "http://" in window or "https://" in window or "@" in window
+
+
+def check_deterministic_text_rules(text: str) -> list[dict[str, Any]]:
+    """Fast local checks that do not depend on LLM availability."""
+    errors: list[dict[str, Any]] = []
+    used_spans: set[tuple[int, int, str]] = set()
+
+    def add_error(start: int, end: int, original: str, corrected: str, error_type: str, description: str) -> None:
+        key = (start, end, error_type)
+        if key in used_spans:
+            return
+        used_spans.add(key)
+        errors.append({
+            "original": original,
+            "corrected": corrected,
+            "type": error_type,
+            "description": description,
+            "start": start,
+            "end": end,
+        })
+
+    for rule in TEXT_RULES:
+        for match in rule["pattern"].finditer(text):
+            add_error(
+                match.start(),
+                match.end(),
+                match.group(0),
+                rule["corrected"],
+                rule["type"],
+                rule["description"],
+            )
+
+    for match in re.finditer(r"\s+([,;:])", text):
+        if "\n" in match.group(0):
+            continue
+        add_error(
+            match.start(),
+            match.end(),
+            match.group(0),
+            match.group(1),
+            "punctuation",
+            "Перед запятой, точкой с запятой или двоеточием пробел не ставится.",
+        )
+
+    for match in re.finditer(r"(?<!\d)([,;:])(?=[А-ЯЁA-Za-zа-яё])", text):
+        if _is_url_or_email_context(text, match.start(), match.end()):
+            continue
+        add_error(
+            match.start(),
+            match.end() + 1,
+            text[match.start():match.end() + 1],
+            match.group(1) + " " + text[match.end()],
+            "punctuation",
+            "После запятой, точки с запятой или двоеточия нужен пробел.",
+        )
+
+    for match in re.finditer(r"\.{2,}\s*\.", text):
+        add_error(
+            match.start(),
+            match.end(),
+            match.group(0),
+            "…",
+            "punctuation",
+            "В тексте найдено избыточное многоточие или лишняя точка.",
+        )
+
+    return errors
+
+
 def check_text_llm(text: str) -> dict[str, Any]:
     if not text.strip():
         return {"status": "skip", "details": "Нет текста для проверки", "errors": []}
     if os.getenv("LETTERCHECK_DISABLE_LLM") == "1":
-        return {"status": "ok", "details": "LLM отключена для детерминированного тестового запуска", "errors": []}
+        return {"status": "ok", "details": "LLM отключена настройкой окружения", "errors": []}
 
     prompt = f"""Ты корректор официально-делового русского текста.
 
@@ -665,9 +780,10 @@ def check_text_llm(text: str) -> dict[str, Any]:
 
 def check_main_text(text: str) -> dict[str, Any]:
     normative_errors = check_normative_links(text)
+    deterministic_errors = check_deterministic_text_rules(text)
     llm_result = check_text_llm(text)
     llm_errors = llm_result.get("errors", [])
-    errors = normative_errors + llm_errors
+    errors = normative_errors + deterministic_errors + llm_errors
     if errors:
         return {
             "status": "has_errors",
@@ -886,6 +1002,105 @@ def check_layout(blocks: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _result_kind(status: str | None) -> str:
+    if not status:
+        return "warn"
+    if status.startswith("ok"):
+        return "ok"
+    if status.startswith("error") or status == "has_errors":
+        return "error"
+    if status == "skip":
+        return "skip"
+    return "warn"
+
+
+def _check_group(name: str, task: str, checks: list[dict[str, Any]]) -> dict[str, Any]:
+    kinds = [_result_kind(check.get("status")) for check in checks]
+    if any(kind == "error" for kind in kinds):
+        status = "has_errors"
+    elif any(kind == "warn" for kind in kinds):
+        status = "needs_attention"
+    elif all(kind == "skip" for kind in kinds):
+        status = "skip"
+    else:
+        status = "ok"
+
+    errors = []
+    for check in checks:
+        errors.extend(check.get("errors", []) or [])
+
+    return {
+        "task": task,
+        "name": name,
+        "status": status,
+        "details": "Проверка пройдена" if status == "ok" else "Есть замечания",
+        "errors_count": len(errors),
+        "checks": [
+            {
+                "status": check.get("status"),
+                "details": check.get("details"),
+            }
+            for check in checks
+        ],
+    }
+
+
+def build_quality_summary(
+    gender_result: dict[str, Any],
+    initials_result: dict[str, Any],
+    text_result: dict[str, Any],
+    required_blocks_result: dict[str, Any],
+) -> dict[str, Any]:
+    groups = [
+        _check_group(
+            "Адресат и обращение",
+            "Задача 1",
+            [gender_result, initials_result],
+        ),
+        _check_group(
+            "Основной текст и нормативные ссылки",
+            "Задача 2",
+            [text_result],
+        ),
+        _check_group(
+            "Обязательные блоки документа",
+            "Задача 3",
+            [required_blocks_result],
+        ),
+    ]
+
+    error_groups = [group for group in groups if group["status"] == "has_errors"]
+    attention_groups = [group for group in groups if group["status"] == "needs_attention"]
+    total_errors = sum(group["errors_count"] for group in groups)
+    score = max(0, 100 - len(error_groups) * 24 - total_errors * 4 - len(attention_groups) * 8)
+
+    if error_groups:
+        status = "needs_revision"
+        verdict = "Документ требует исправлений перед отправкой."
+    elif attention_groups:
+        status = "needs_attention"
+        verdict = "Критичных ошибок нет, но есть проверки, требующие внимания."
+    else:
+        status = "ready"
+        verdict = "Документ готов к отправке по проверяемым критериям."
+
+    recommendations = []
+    for group in groups:
+        if group["status"] == "has_errors":
+            recommendations.append(f"Исправить раздел «{group['name']}».")
+    if not recommendations:
+        recommendations.append("Сохранить текущую структуру письма; проверяемые требования выполнены.")
+
+    return {
+        "status": status,
+        "score": score,
+        "verdict": verdict,
+        "total_errors": total_errors,
+        "groups": groups,
+        "recommendations": recommendations,
+    }
+
+
 def _split_signature(body_blocks: list[TextBlock]) -> tuple[list[TextBlock], list[TextBlock], list[TextBlock]]:
     non_empty_indexes = [i for i, block in enumerate(body_blocks) if block.text]
     if not non_empty_indexes:
@@ -990,6 +1205,12 @@ def extract_header_and_greeting(docx_path: str) -> dict[str, Any]:
     text_result = check_main_text(blocks.get("body_text") or blocks.get("full_text") or "")
     required_blocks_result = check_required_blocks(file_name, blocks)
     layout_result = check_layout(blocks)
+    quality_summary = build_quality_summary(
+        gender_result,
+        initials_result,
+        text_result,
+        required_blocks_result,
+    )
 
     greeting_errors = (
         gender_result.get("status", "").startswith("error")
@@ -1015,12 +1236,16 @@ def extract_header_and_greeting(docx_path: str) -> dict[str, Any]:
         "check_spelling": text_result,
         "check_required_blocks": required_blocks_result,
         "check_layout": layout_result,
+        "quality_summary": quality_summary,
     }
 
 
 def check_plain_text(text: str) -> dict[str, Any]:
     normalized = text.strip()
     result = check_main_text(normalized)
+    gender_result = {"status": "skip", "details": "Для обычного текста не применяется"}
+    initials_result = {"status": "skip", "details": "Для обычного текста не применяется"}
+    required_result = {"status": "skip", "details": "Для обычного текста не применяется", "errors": []}
     paragraphs = [
         {"text": line, "style": {"alignment": "justify"}, "empty": not bool(line.strip())}
         for line in normalized.splitlines()
@@ -1050,9 +1275,10 @@ def check_plain_text(text: str) -> dict[str, Any]:
         "parsed_greeting": {"salutation": None, "is_collective": False, "persons": []},
         "highlight_greeting": False,
         "error_positions": [],
-        "check_gender": {"status": "skip", "details": "Для обычного текста не применяется"},
-        "check_initials": {"status": "skip", "details": "Для обычного текста не применяется"},
+        "check_gender": gender_result,
+        "check_initials": initials_result,
         "check_spelling": result,
-        "check_required_blocks": {"status": "skip", "details": "Для обычного текста не применяется", "errors": []},
+        "check_required_blocks": required_result,
         "check_layout": {"status": "skip", "details": "Для обычного текста не применяется", "errors": []},
+        "quality_summary": build_quality_summary(gender_result, initials_result, result, required_result),
     }

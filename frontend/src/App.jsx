@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {
-  Layout, Typography, Button, Badge, Space, Spin, Result, Tabs,
+  Layout, Typography, Button, Space, Spin, Result, Tabs,
 } from 'antd'
 import {
   FileTextOutlined, ReloadOutlined,
@@ -13,31 +13,6 @@ import { TextCheckPanel } from './components/TextCheckPanel'
 
 const { Header, Sider, Content } = Layout
 const { Title, Text } = Typography
-
-/* ─── Хелперы ──────────────────────────────────────────────────── */
-
-function statusBadge(status) {
-  if (!status) return <Badge status="default" text="—" />
-  if (status.startsWith('ok'))    return <Badge status="success" text={statusLabel(status)} />
-  if (status.startsWith('error')) return <Badge status="error"   text={statusLabel(status)} />
-  return <Badge status="warning" text={statusLabel(status)} />
-}
-
-function statusLabel(s) {
-  const map = {
-    ok:                         'Всё верно',
-    ok_collective:              'Коллективное — ОК',
-    ok_no_greeting:             'Обращение отсутствует',
-    ok_no_fio:                  'Организация без физлица',
-    skip:                       'Пропущено',
-    error_gender:               'Неверный род',
-    error_mismatch:             'Инициалы не совпадают',
-    error_personal_to_multiple: 'Личное при нескольких адресатах',
-    error_exception:            'Ошибка обработки',
-    llm_error:                  'Ошибка LLM',
-  }
-  return map[s] || s
-}
 
 /* ─── App ──────────────────────────────────────────────────────── */
 
@@ -111,10 +86,12 @@ export default function App() {
         }}>
           <div>
             <Title level={5} style={{ margin: 0, fontWeight: 700 }}>
-              Проверка письма:
-              <Text type="secondary" style={{ fontSize: 12, fontFamily: "'JetBrains Mono', monospace" }}>
-                &nbsp;{fileName}
-              </Text>
+              Проверка письма{fileName ? ':' : ''}
+              {fileName && (
+                <Text type="secondary" style={{ fontSize: 12, fontFamily: "'JetBrains Mono', monospace" }}>
+                  &nbsp;{fileName}
+                </Text>
+              )}
             </Title>
           </div>
 

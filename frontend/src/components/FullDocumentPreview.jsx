@@ -10,6 +10,17 @@ import {
 
 const { Text } = Typography
 
+const POPOVER_TEXT_LIMIT = 140
+const POPOVER_CORRECTION_LIMIT = 90
+const POPOVER_ITEMS_LIMIT = 3
+
+function compactPopoverText(value, limit = POPOVER_TEXT_LIMIT) {
+  if (!value) return ''
+  const normalized = String(value).replace(/\s+/g, ' ').trim()
+  if (normalized.length <= limit) return normalized
+  return `${normalized.slice(0, limit).trim()}...`
+}
+
 // ── Вспомогательная функция: вставляем подсветку в произвольный текст ──────
 function HighlightedText({ text, highlights, baseColor, borderColor, icon }) {
   if (!text) return null
@@ -39,36 +50,47 @@ function HighlightedText({ text, highlights, baseColor, borderColor, icon }) {
 
             {h.items?.length > 0 ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                {h.items.map((item, index) => (
+                {h.items.slice(0, POPOVER_ITEMS_LIMIT).map((item, index) => (
                   <div key={index}>
                     {item.title && (
                       <div style={{ fontSize: 12, fontWeight: 600 }}>
-                        {item.title}
+                        {compactPopoverText(item.title, 70)}
                       </div>
                     )}
                     {item.description && (
                       <div style={{ fontSize: 12 }}>
-                        {item.description}
+                        {compactPopoverText(item.description)}
                       </div>
                     )}
                     {item.corrected && (
                       <div style={{ marginTop: 4, fontSize: 12 }}>
                         <span style={{ opacity: 0.7 }}>Исправление: </span>
                         <span style={{ fontWeight: 'bold', color: '#52c41a' }}>
-                          {item.corrected}
+                          {compactPopoverText(item.corrected, POPOVER_CORRECTION_LIMIT)}
                         </span>
                       </div>
                     )}
                   </div>
                 ))}
+                {h.items.length > POPOVER_ITEMS_LIMIT && (
+                  <div style={{ fontSize: 12, opacity: 0.75 }}>
+                    Еще {h.items.length - POPOVER_ITEMS_LIMIT} замеч. ниже
+                  </div>
+                )}
               </div>
             ) : (
               <>
-                {h.description && <div style={{ fontSize: 12 }}>{h.description}</div>}
+                {h.description && (
+                  <div style={{ fontSize: 12 }}>
+                    {compactPopoverText(h.description)}
+                  </div>
+                )}
                 {h.corrected && (
                   <div style={{ marginTop: 6, fontSize: 12 }}>
                     <span style={{ opacity: 0.7 }}>Исправление: </span>
-                    <span style={{ fontWeight: 'bold', color: '#52c41a' }}>{h.corrected}</span>
+                    <span style={{ fontWeight: 'bold', color: '#52c41a' }}>
+                      {compactPopoverText(h.corrected, POPOVER_CORRECTION_LIMIT)}
+                    </span>
                   </div>
                 )}
               </>
