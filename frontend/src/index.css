@@ -360,3 +360,29 @@ body {
 .document-viewer::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
+
+/* Document mode selection */
+.app-content { padding: 28px 32px; overflow: auto; }
+.file-check-start { max-width: 960px; margin: 12px auto 36px; }
+.mode-heading { margin-bottom: 24px; }
+.step-label { color: #68778b; font-size: 10px; font-weight: 650; letter-spacing: .14em; }
+.mode-heading h2 { color: #15243b; margin: 10px 0 8px; font-size: clamp(23px, 2.5vw, 30px); font-weight: 650; letter-spacing: -.035em; }
+.mode-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; border: 0; min-width: 0; }
+.mode-card { position: relative; display: flex; align-items: center; gap: 14px; min-width: 0; padding: 18px 20px; border: 1px solid #dce2ea; border-radius: 16px; background: #fff; cursor: pointer; transition: border-color .15s, background .15s, box-shadow .15s; }
+.mode-card:hover { border-color: #8da8d2; box-shadow: 0 4px 18px #1b3b6c08; }
+.mode-card.is-selected { border-color: #376aca; background: #f7faff; box-shadow: inset 0 0 0 1px #376aca; }
+.mode-card:focus-within { outline: 3px solid #92b5f3; outline-offset: 4px; }
+.mode-card input, .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.mode-icon { flex-shrink: 0; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: #f0f3f7; color: #617187; font-size: 22px; }
+.is-selected .mode-icon { color: #315fac; background: #e6eefc; }
+.mode-radio { flex-shrink: 0; margin-left: auto; width: 22px; height: 22px; border: 1px solid #ccd4df; border-radius: 50%; display: grid; place-items: center; font-size: 12px; }
+.is-selected .mode-radio { background: #376aca; color: white; border-color: #376aca; }
+.mode-title { color: #1d2d46; font-size: 17px; line-height: 1.35; font-weight: 650; margin-bottom: 0; }
+.upload-heading { margin: 30px 0 16px; }
+.upload-heading h3 { margin-top: 8px; font-size: 17px; font-weight: 600; color: #24354d; }
+.file-check-start .drop-zone-center { min-height: 0; }
+.file-check-start .drop-zone-center .ant-upload-wrapper { width: 100%; }
+.file-check-start .ant-upload-drag { min-height: 190px; background: #fff; border-radius: 16px; }
+@media (max-width: 700px) { .app-content { padding: 18px 16px; } .mode-grid { grid-template-columns: 1fr; } .mode-card { padding: 16px; gap: 12px; } .mode-title { font-size: 16px; } }
+
+.ant-layout-sider-collapsed .ant-layout-sider-children { visibility: hidden; overflow: hidden; }

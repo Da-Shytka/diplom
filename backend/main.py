@@ -9,12 +9,12 @@ import shutil
 import tempfile
 from pathlib import Path
 
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
-from extract_docx_header import check_plain_text, extract_header_and_greeting
+from extract_docx_header import DOCUMENT_TYPE_LABELS, check_plain_text, extract_header_and_greeting
 
 app = FastAPI(title="LetterCheck Smart API", version="2.0.0")
 
@@ -38,19 +38,22 @@ def health():
 
 
 @app.post("/check")
-async def check_document(file: UploadFile = File(...)):
+async def check_document(file: UploadFile = File(...), template: str = Form("outgoing_letter")):
     """Проверка загруженного .docx файла"""
     if not file.filename or not file.filename.lower().endswith(".docx"):
         raise HTTPException(status_code=400, detail="Принимаются только файлы .docx")
 
+    if template not in DOCUMENT_TYPE_LABELS:
+        raise HTTPException(status_code=422, detail="Неизвестный шаблон проверки")
+
     tmp_dir = Path(tempfile.mkdtemp())
-    tmp_path = tmp_dir / file.filename
+    tmp_path = tmp_dir / Path(file.filename).name
 
     try:
         with open(tmp_path, "wb") as f:
             shutil.copyfileobj(file.file, f)
 
-        result = extract_header_and_greeting(str(tmp_path))
+        result = extract_header_and_greeting(str(tmp_path), template)
         return JSONResponse(content=result)
 
     except Exception as e:

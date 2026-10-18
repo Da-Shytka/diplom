@@ -8,13 +8,14 @@ export function useDocumentCheck() {
   const [loading, setLoading] = useState(false)
   const [error, setError]     = useState(null)
 
-  const checkDocument = useCallback(async (file) => {
+  const checkDocument = useCallback(async (file, template = 'outgoing_letter') => {
     setLoading(true)
     setError(null)
     setResult(null)
 
     const formData = new FormData()
     formData.append('file', file)
+    formData.append('template', template)
 
     try {
       const resp = await fetch('/check', {

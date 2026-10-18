@@ -7,6 +7,7 @@ import {
 } from '@ant-design/icons'
 
 import { useDocumentCheck } from './hooks/useDocumentCheck'
+import { CheckModePicker } from './components/CheckModePicker'
 import { DropZone } from './components/DropZone'
 import { FullDocumentPreview } from './components/FullDocumentPreview'
 import { TextCheckPanel } from './components/TextCheckPanel'
@@ -20,11 +21,12 @@ export default function App() {
   const { result, loading, error, checkDocument, checkText, reset } = useDocumentCheck()
   const [fileName, setFileName] = useState(null)
   const [mode, setMode] = useState('file')
+  const [template, setTemplate] = useState('outgoing_letter')
 
   function handleFile(file) {
     setFileName(file.name)
     setMode('file')
-    checkDocument(file)
+    checkDocument(file, template)
   }
 
   function handleText(text) {
@@ -44,6 +46,9 @@ export default function App() {
       {/* ─── Сайдбар ─────────────────────────────────────────── */}
       <Sider
         width={220}
+        breakpoint="lg"
+        collapsedWidth={0}
+        trigger={null}
         theme="light"
         style={{
           borderRight: '1px solid #f0f0f0',
@@ -105,7 +110,7 @@ export default function App() {
           )}
         </Header>
 
-        <Content style={{ padding: '28px 32px', overflow: 'auto' }}>
+        <Content className="app-content">
 
           {/* Загрузка */}
           {!result && !loading && !error && (
@@ -116,7 +121,10 @@ export default function App() {
                 {
                   key: 'file',
                   label: 'Файл .docx',
-                  children: <DropZone onFile={handleFile} />,
+                  children: <div className="file-check-start">
+                    <CheckModePicker value={template} onChange={setTemplate} />
+                    <DropZone onFile={handleFile} />
+                  </div>,
                 },
                 {
                   key: 'text',

@@ -26,10 +26,19 @@ function HighlightedText({ text, highlights, baseColor, borderColor, icon }) {
   if (!text) return null
   if (!highlights || highlights.length === 0) return <span>{text}</span>
 
-  // Сортируем по позиции, убираем пересечения
-  const sorted = [...highlights]
-    .sort((a, b) => a.start - b.start)
-    .filter((h, i, arr) => i === 0 || h.start >= arr[i - 1].end)
+  // Preserve every finding when the model reports overlapping fragments.
+  const sorted = []
+  for (const highlight of [...highlights].sort((a, b) => a.start - b.start || a.end - b.end)) {
+    const last = sorted[sorted.length - 1]
+    const items = highlight.items || [{ title: highlight.title, description: highlight.description, corrected: highlight.corrected }]
+    if (last && highlight.start < last.end) {
+      last.end = Math.max(last.end, highlight.end)
+      last.items.push(...items)
+      last.title = 'Замечания к фрагменту'
+    } else {
+      sorted.push({ ...highlight, items: [...items] })
+    }
+  }
 
   const parts = []
   let cursor = 0
@@ -346,9 +355,9 @@ function RequiredBlocksPanel({ checkRequiredBlocks }) {
     <div className="required-blocks-panel">
       <div className="required-blocks-head">
         <div>
-          <div className="required-blocks-title">Обязательные блоки</div>
+          <div className="required-blocks-title">Структура документа</div>
           <div className="required-blocks-subtitle">
-            Тип документа: <b>{checkRequiredBlocks.document_type_label || checkRequiredBlocks.document_type}</b>
+            Режим: <b>{checkRequiredBlocks.document_type_label || checkRequiredBlocks.document_type}</b>
             {classification.confidence && (
               <Tag color={classification.confidence === 'high' ? 'green' : 'gold'} style={{ marginLeft: 8 }}>
                 {classification.confidence === 'high' ? 'уверенно' : 'по признакам'}
@@ -357,7 +366,7 @@ function RequiredBlocksPanel({ checkRequiredBlocks }) {
           </div>
         </div>
         <Tag color={hasErrors ? 'error' : 'success'} style={{ margin: 0 }}>
-          {hasErrors ? 'Есть пропуски' : 'Все на месте'}
+          {hasErrors ? 'Есть нераспознанные блоки' : 'Проверяемые блоки найдены'}
         </Tag>
       </div>
 
@@ -399,6 +408,7 @@ function RequiredBlocksPanel({ checkRequiredBlocks }) {
                 <div className="required-block-state" style={{ color }}>
                   {requiredStatusLabel(block)}
                 </div>
+                {block.note && <div className="required-block-evidence">{block.note}</div>}
                 {block.evidence && (
                   <div className="required-block-evidence">
                     {block.evidence}
@@ -528,6 +538,17 @@ export function FullDocumentPreview({ result }) {
       <div style={{ padding: '0 16px 16px' }}>
         {mode !== 'text' && (
           <RequiredBlocksPanel checkRequiredBlocks={check_required_blocks} />
+        )}
+        {check_spelling?.recommendations?.length > 0 && (
+          <div style={{ marginTop: 16 }}>
+            <Typography.Title level={5}>Рекомендации для ручной проверки</Typography.Title>
+            <Text type="secondary">Это возможные улучшения и замечания, а не подтверждённые ошибки. Они не влияют на итог проверки.</Text>
+            {check_spelling.recommendations.map((item, index) => (
+              <Alert key={index} style={{ marginTop: 8 }} type="info"
+                message={item.description}
+                description={<span>Фрагмент: «{item.original}»{item.corrected && <>. Вариант: «{item.corrected}»</>}</span>} />
+            ))}
+          </div>
         )}
         <ErrorLegend
           checkGender={check_gender}
